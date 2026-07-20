@@ -22,8 +22,9 @@ Thumbs.db
 
 # Generated files
 logs/
+
+# Ignore generated report files only
 reports/*.json
-logs/
 
 # Python packaging
 build/

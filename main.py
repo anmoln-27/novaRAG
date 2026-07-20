@@ -4,7 +4,7 @@ from agents.hacker_agent import HackerAgent
 from agents.critic_agent import analyze_result
 from agents.attack_history import AttackHistory
 from executor.executor import execute_attack
-from reports.report_generator import ReportGenerator
+from reporting.report_generator import ReportGenerator
 
 import json
 import os
