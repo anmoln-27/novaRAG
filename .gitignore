@@ -22,7 +22,8 @@ Thumbs.db
 
 # Generated files
 logs/
-reports/
+reports/*.json
+logs/
 
 # Python packaging
 build/
