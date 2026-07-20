@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@layer tailwind-base, primevue, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+@tailwind components;
+@layer tailwind-utilities {
+  @tailwind utilities;
+}
+
+:root {
+  --color-bg: #F7F1EC;
+  --color-bg-secondary: #F3E7E1;
+  --color-surface: #FFFFFF;
+  --color-accent: #5A1F2D;
+  --color-accent-soft: #7A3043;
+  --color-pink: #EBC8D1;
+  --color-border: #D8C8C2;
+  --color-ink: #2B2B2B;
+  --color-ink-soft: #6F6F6F;
+  --color-success: #2F855A;
+  --color-warning: #D69E2E;
+  --color-critical: #C53030;
+  --ease-elegant: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark-mode variant: deep charcoal/burgundy ground, same brand accent.
+   Applied via .dark-mode on <html> (see useTheme composable). */
+.dark-mode {
+  --color-bg: #1E1517;
+  --color-bg-secondary: #271A1D;
+  --color-surface: #2B1D20;
+  --color-accent: #EBC8D1;
+  --color-accent-soft: #D9A6B4;
+  --color-pink: #7A3043;
+  --color-border: #3D2A2E;
+  --color-ink: #F4EBE7;
+  --color-ink-soft: #B9A6A2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+  margin: 0;
+  color: var(--color-ink);
+}
+
+/* Respect reduced-motion preference throughout the app */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Thin, elegant scrollbars fitting the premium-SaaS feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-soft);
+}
+
+/* Visible keyboard focus ring, brand-colored, never suppressed */
+:focus-visible {
+  outline: 2px solid var(--color-accent-soft);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Eyebrow label utility used for pipeline-stage tags (Discovery / Attack / Analysis) */
+.eyebrow {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-soft);
+}
+
+/* Shared card surface */
+.surface-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+}

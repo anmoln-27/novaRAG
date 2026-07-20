@@ -1,0 +1,7 @@
+{
+  "target_app_status": "online",
+  "gemini_status": "ok",
+  "orchestrator_status": "ok",
+  "attack_count": 6,
+  "target_url": "http://127.0.0.1:8080"
+}

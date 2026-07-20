@@ -1,0 +1,54 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        bg: 'var(--color-bg)',
+        'bg-secondary': 'var(--color-bg-secondary)',
+        surface: 'var(--color-surface)',
+        accent: {
+          DEFAULT: 'var(--color-accent)',
+          soft: 'var(--color-accent-soft)',
+        },
+        pink: 'var(--color-pink)',
+        border: 'var(--color-border)',
+        ink: {
+          DEFAULT: 'var(--color-ink)',
+          soft: 'var(--color-ink-soft)',
+        },
+        // Semantic status colors stay fixed across themes — red should always
+        // read as critical, regardless of light/dark.
+        success: '#2F855A',
+        warning: '#D69E2E',
+        critical: '#C53030',
+      },
+      fontFamily: {
+        display: ['"Instrument Sans"', 'system-ui', 'sans-serif'],
+        body: ['"Inter"', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+      },
+      fontSize: {
+        'display-xl': ['5.5rem', { lineHeight: '0.98', letterSpacing: '-0.03em', fontWeight: '500' }],
+        'display-lg': ['3.75rem', { lineHeight: '1', letterSpacing: '-0.025em', fontWeight: '500' }],
+        'display-md': ['2.5rem', { lineHeight: '1.05', letterSpacing: '-0.02em', fontWeight: '500' }],
+        'display-sm': ['1.75rem', { lineHeight: '1.15', letterSpacing: '-0.015em', fontWeight: '500' }],
+        kpi: ['3rem', { lineHeight: '1', letterSpacing: '-0.02em', fontWeight: '400' }],
+        eyebrow: ['0.75rem', { lineHeight: '1', letterSpacing: '0.14em', fontWeight: '600' }],
+      },
+      borderRadius: {
+        card: '20px',
+        pill: '999px',
+      },
+      boxShadow: {
+        soft: '0 1px 2px rgba(43, 27, 27, 0.04), 0 8px 24px -12px rgba(90, 31, 45, 0.12)',
+        elevated: '0 4px 12px rgba(43, 27, 27, 0.05), 0 16px 40px -16px rgba(90, 31, 45, 0.18)',
+      },
+      transitionTimingFunction: {
+        elegant: 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+  plugins: [],
+}

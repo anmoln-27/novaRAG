@@ -1,0 +1,7 @@
+{
+  "dashboard": "/mock/dashboard.json",
+  "attack": "/mock/attack.json",
+  "reports": "/mock/reports.json",
+  "logs": "/mock/logs.json",
+  "health": "/mock/health.json"
+}

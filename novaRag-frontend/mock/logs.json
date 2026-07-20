@@ -1,0 +1,11 @@
+
+  [
+  { "id": "log_1042", "timestamp": "2026-07-15T09:41:12Z", "endpoint": "/transfer", "method": "POST", "status_code": 200, "response_time_seconds": 0.008, "severity": "High", "message": "Negative amount accepted without balance validation." },
+  { "id": "log_1041", "timestamp": "2026-07-15T09:38:47Z", "endpoint": "/transfer", "method": "POST", "status_code": 200, "response_time_seconds": 0.011, "severity": "Critical", "message": "Unbounded transfer amount created an unrealistic balance." },
+  { "id": "log_1040", "timestamp": "2026-07-15T09:35:03Z", "endpoint": "/transfer", "method": "POST", "status_code": 200, "response_time_seconds": 0.006, "severity": "Low", "message": "Self-transfer handled safely." },
+  { "id": "log_1039", "timestamp": "2026-07-15T09:30:55Z", "endpoint": "/login", "method": "POST", "status_code": 401, "response_time_seconds": 0.014, "severity": "Low", "message": "Injection payload correctly rejected." },
+  { "id": "log_1038", "timestamp": "2026-07-15T09:26:19Z", "endpoint": "/transfer", "method": "POST", "status_code": 200, "response_time_seconds": 0.009, "severity": "Medium", "message": "Transfer to unvalidated receiver succeeded." },
+  { "id": "log_1037", "timestamp": "2026-07-15T09:20:41Z", "endpoint": "/transfer", "method": "POST", "status_code": 200, "response_time_seconds": 0.007, "severity": "Low", "message": "Zero-value transfer had no material effect." },
+  { "id": "log_1036", "timestamp": "2026-07-15T09:15:02Z", "endpoint": "/transfer", "method": "POST", "status_code": 422, "response_time_seconds": 0.004, "severity": "Low", "message": "Malformed payload rejected with validation error." },
+  { "id": "log_1035", "timestamp": "2026-07-15T09:09:38Z", "endpoint": "/login", "method": "POST", "status_code": 200, "response_time_seconds": 0.019, "severity": "Low", "message": "Baseline login with valid credentials succeeded." }
+]

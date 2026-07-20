@@ -1,0 +1,35 @@
+[
+  {
+    "id": "finding_001",
+    "severity": "Critical",
+    "endpoint": "/transfer",
+    "method": "POST",
+    "type": "Business Logic Vulnerability",
+    "payload": { "sender": "alice", "receiver": "bob", "amount": 999999999 },
+    "description": "No upper bound on transfer amount allowed an unrealistic balance to be created, indicating missing range validation on the amount field.",
+    "recommendation": "Enforce a maximum transfer amount and validate it against the sender's available balance before processing the transfer.",
+    "discoveredAt": "2026-07-15T09:38:47Z"
+  },
+  {
+    "id": "finding_002",
+    "severity": "High",
+    "endpoint": "/transfer",
+    "method": "POST",
+    "type": "Business Logic Vulnerability",
+    "payload": { "sender": "alice", "receiver": "bob", "amount": -1000 },
+    "description": "Negative transfer amounts are accepted, allowing the sender's balance to go negative and the receiver's to be credited without any real funds moving.",
+    "recommendation": "Reject negative amounts at the request-validation layer and confirm the sender has sufficient balance before debiting.",
+    "discoveredAt": "2026-07-15T09:41:12Z"
+  },
+  {
+    "id": "finding_003",
+    "severity": "Medium",
+    "endpoint": "/transfer",
+    "method": "POST",
+    "type": "Business Logic Vulnerability",
+    "payload": { "sender": "bob", "receiver": "unknown_user", "amount": 250 },
+    "description": "Transfers succeed even when the receiver account does not appear to be validated as an existing user.",
+    "recommendation": "Validate that the receiver exists before completing the transfer, and return a clear error otherwise.",
+    "discoveredAt": "2026-07-15T09:26:19Z"
+  }
+]

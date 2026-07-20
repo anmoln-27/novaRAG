@@ -1,0 +1,28 @@
+
+[
+  {
+    "path": "/",
+    "method": "GET",
+    "summary": "Root",
+    "fields": {}
+  },
+  {
+    "path": "/login",
+    "method": "POST",
+    "summary": "Login",
+    "fields": {
+      "username": "string",
+      "password": "string"
+    }
+  },
+  {
+    "path": "/transfer",
+    "method": "POST",
+    "summary": "Transfer",
+    "fields": {
+      "sender": "string",
+      "receiver": "string",
+      "amount": "integer"
+    }
+  }
+]
