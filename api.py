@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import json
 import os
 import subprocess
+import sys
 
 app = FastAPI(title="novaRAG Backend API")
 
@@ -75,13 +76,56 @@ def get_strategy():
 @app.post("/api/run")
 def run_scan():
 
-    subprocess.run(["python", "main.py"])
+    try:
+        result = subprocess.run(
+            [sys.executable, "main.py"],
+            capture_output=True,
+            text=True,
+            check=False
+        )
 
-    if os.path.exists(REPORT_PATH):
+        print("========== NOVARAG STDOUT ==========")
+        print(result.stdout)
 
-        with open(REPORT_PATH, "r") as file:
-            return json.load(file)
+        print("========== NOVARAG STDERR ==========")
+        print(result.stderr)
 
-    return {
-        "status": "Scan completed"
-    }
+        if result.returncode != 0:
+            return {
+                "status": "failed",
+                "return_code": result.returncode,
+                "stdout": result.stdout,
+                "stderr": result.stderr
+            }
+
+        report = None
+        history = []
+        strategy = {}
+
+        if os.path.exists(REPORT_PATH):
+            with open(REPORT_PATH, "r") as file:
+                report = json.load(file)
+
+        if os.path.exists(HISTORY_PATH):
+            with open(HISTORY_PATH, "r") as file:
+                history = json.load(file)
+
+        if os.path.exists(STRATEGY_PATH):
+            with open(STRATEGY_PATH, "r") as file:
+                strategy = json.load(file)
+
+        return {
+            "status": "success",
+            "report_generated": report is not None,
+            "history_count": len(history),
+            "strategy_loaded": strategy != {},
+            "report": report,
+            "stdout": result.stdout,
+            "stderr": result.stderr
+        }
+
+    except Exception as e:
+        return {
+            "status": "exception",
+            "error": str(e)
+        }
