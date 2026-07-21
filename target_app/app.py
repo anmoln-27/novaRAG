@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from target_app.database import users
+from database import users
 
 app = FastAPI(
     title="novaRAG Target Application",
