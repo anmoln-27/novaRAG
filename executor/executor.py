@@ -3,8 +3,10 @@ import json
 import time
 import os
 
-BASE_URL = "http://127.0.0.1:8080"
-
+BASE_URL = os.getenv(
+    "TARGET_URL",
+    "https://novarag-target.onrender.com"
+)
 
 def execute_attack(attack):
 
